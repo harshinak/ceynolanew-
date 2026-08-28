@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traceability | Ceynola Cinnamon</title>
+<meta name="description" content="Discover the journey of Ceynola cinnamon. Full transparency from our family plot in Sri Lanka to your kitchen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bark-950:#241209;
+    --bark-800:#3d2313;
+    --bark-700:#5a3419;
+    --cinnamon-600:#a8541f;
+    --cinnamon-500:#c06b2c;
+    --quill-400:#d99b54;
+    --quill-300:#e8c495;
+    --parchment-50:#f7efe2;
+    --parchment-100:#f0e4d1;
+    --ceylon-700:#33503d;
+    --ceylon-600:#43654f;
+    --ink:#241209;
+    --paper-line: rgba(36,18,9,0.12);
+    --shadow-soft: 0 20px 50px -25px rgba(36,18,9,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--parchment-50); color:var(--ink);
+    font-family:'Work Sans', sans-serif; font-weight:400; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif; font-weight:450; letter-spacing:-0.01em;
+    margin:0; color:var(--bark-950);
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  .eyebrow{
+    font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--cinnamon-600); font-weight:600; display:flex; align-items:center; gap:0.6em;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--cinnamon-600); display:inline-block;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 6vw;}
+  section{padding:min(11vw,110px) 0; scroll-margin-top:80px;}
+
+  .reveal{opacity:1; transform:translateY(16px); transition:transform .7s ease;}
+  .reveal.in{transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} *{animation:none !important;} }
+
+  /* ===== NAV ===== */
+  header{ position:sticky; top:0; z-index:50; background:rgba(247,239,226,0.86); backdrop-filter:blur(10px); border-bottom:1px solid var(--paper-line); }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:'Fraunces', serif; font-size:1.28rem; font-weight:600; color:var(--bark-950); }
+  .nav-links{ display:flex; gap:2.4rem; list-style:none; margin:0; padding:0; font-size:0.92rem; letter-spacing:0.02em; align-items:center; }
+  .nav-links a{position:relative; padding:4px 0;}
+  .nav-links a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--cinnamon-600); transition:width .3s ease; }
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a.active::after{width:100%;}
+  .nav-cta{
+    background:var(--bark-950); color:var(--parchment-50); padding:0.65rem 1.35rem; border-radius:100px;
+    font-size:0.85rem; font-weight:500; letter-spacing:0.02em; white-space:nowrap;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .nav-cta:hover{background:var(--cinnamon-600); transform:translateY(-1px);}
+  .nav-cta::after{display:none;}
+  #navCheck{display:none;}
+  .nav-toggle{display:none; cursor:pointer; padding:6px;}
+  .nav-toggle span{display:block; width:22px; height:2px; background:var(--bark-950); margin:5px 0; transition:.3s;}
+  @media (max-width:860px){
+    .nav-links{
+      position:fixed; inset:0 0 0 auto; top:65px; flex-direction:column; background:var(--parchment-50);
+      width:70%; height:calc(100vh - 65px); padding:2.4rem; gap:1.6rem; font-size:1.05rem;
+      transform:translateX(100%); transition:transform .35s ease; border-left:1px solid var(--paper-line); align-items:flex-start;
+    }
+    #navCheck:checked ~ .nav-links{transform:translateX(0);}
+    .nav-toggle{display:block;}
+    .nav-cta{display:none;}
+  }
+
+  /* ===== PAGE HERO ===== */
+  .page-hero{ padding-top:min(9vw,90px); padding-bottom:min(6vw,60px); }
+  .page-hero h1{ font-size:clamp(2.2rem, 4.4vw, 3.4rem); line-height:1.08; margin-top:0.8rem; max-width:20ch; }
+  .page-hero p.lede{ margin-top:1.4rem; font-size:1.05rem; color:var(--bark-800); max-width:56ch; }
+
+  /* ===== ORIGIN SPLIT ===== */
+  .origin{ background:var(--parchment-100); border-top:1px solid var(--paper-line); border-bottom:1px solid var(--paper-line); }
+  .origin .wrap{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:4vw; align-items:center; }
+  .origin h2{ font-size:clamp(1.7rem,3vw,2.2rem); margin-top:0.6rem; }
+  .origin p{ margin-top:1rem; color:var(--bark-800); max-width:48ch; }
+  .fact-pair{ display:flex; gap:2.4rem; flex-wrap:wrap; }
+  .fact-pair div{ background:#fff; border:1px solid var(--paper-line); border-radius:18px; padding:1.4rem 1.6rem; flex:1 1 180px; }
+  .fact-pair div h4{ font-family:'Fraunces',serif; font-weight:600; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cinnamon-600); margin-bottom:0.4rem; }
+  .fact-pair div p{ margin:0; font-size:0.98rem; color:var(--bark-950); }
+
+  /* ===== JOURNEY TIMELINE ===== */
+  .timeline{ display:grid; grid-template-columns:repeat(5,1fr); gap:1.4rem; margin-top:3rem; }
+  .step{ background:var(--parchment-100); border:1px solid var(--paper-line); border-radius:20px; padding:1.8rem 1.4rem; transition:transform .3s ease, box-shadow .3s ease, background .3s ease; }
+  .step:hover{ transform:translateY(-6px); box-shadow:var(--shadow-soft); background:#fff; }
+  .step .num{ font-family:'Fraunces',serif; font-size:1.7rem; color:var(--quill-400); font-weight:600; }
+  .step h3{ font-size:1.05rem; margin-top:0.6rem; margin-bottom:0.5rem; }
+  .step p{ font-size:0.88rem; color:var(--bark-700); margin:0; }
+  @media (max-width:960px){ .timeline{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .timeline{grid-template-columns:1fr;} }
+
+  /* ===== QUALITY (dark) ===== */
+  .trust{ background:var(--bark-950); color:var(--parchment-50); }
+  .trust .eyebrow{ color:var(--quill-400); }
+  .trust .eyebrow::before{ background:var(--quill-400); }
+  .trust h2{ color:var(--parchment-50); }
+  .trust-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.4rem; }
+  .trust-item{
+    display:flex; align-items:flex-start; gap:0.9rem; background:rgba(247,239,226,0.05);
+    border:1px solid rgba(247,239,226,0.14); border-radius:16px; padding:1.3rem 1.4rem; font-size:0.96rem;
+  }
+  .trust-item svg{ width:20px; height:20px; flex-shrink:0; color:var(--quill-400); margin-top:2px; }
+  @media (max-width:860px){ .trust-list{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .trust-list{grid-template-columns:1fr;} }
+
+  .badge-row{ display:flex; gap:1rem; flex-wrap:wrap; margin-top:2.6rem; }
+  .badge-row span{
+    font-family:'Fraunces',serif; font-size:0.9rem; color:var(--parchment-50);
+    border:1px solid rgba(247,239,226,0.25); border-radius:100px; padding:0.55rem 1.2rem;
+  }
+
+  /* ===== CTA STRIP ===== */
+  .cta-strip{ background:var(--parchment-100); border-top:1px solid var(--paper-line); }
+  .cta-strip .wrap{ text-align:center; }
+  .cta-strip h2{ font-size:clamp(1.8rem,3.2vw,2.4rem); max-width:22ch; margin:0.6rem auto 0; }
+  .cta-strip p{ margin-top:1rem; color:var(--bark-800); max-width:50ch; margin-left:auto; margin-right:auto; }
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:0.5em; margin-top:2rem;
+    padding:0.95rem 1.9rem; border-radius:100px; font-size:0.95rem; font-weight:500;
+    background:var(--cinnamon-600); color:#fff; transition:transform .25s ease, background .25s ease;
+  }
+  .btn-primary:hover{ background:var(--bark-950); transform:translateY(-2px); }
+
+  /* ===== FOOTER ===== */
+  footer{ background:var(--bark-950); color:var(--quill-300); padding-top:min(8vw,80px); }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr; gap:3vw; padding-bottom:3rem; border-bottom:1px solid rgba(247,239,226,0.12); }
+  .foot-grid .brand{ color:var(--parchment-50); }
+  .foot-grid p{ margin-top:1rem; max-width:36ch; font-size:0.92rem; color:var(--quill-300); }
+  .foot-grid h5{ font-family:'Fraunces',serif; color:var(--parchment-50); font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1rem; font-weight:600; }
+  .foot-grid ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.7rem; font-size:0.92rem; }
+  .foot-bottom{ display:flex; justify-content:space-between; align-items:center; padding:1.6rem 6vw; font-size:0.82rem; color:var(--quill-300); flex-wrap:wrap; gap:1rem; max-width:1200px; margin:0 auto; }
+  .foot-social{ display:flex; gap:0.9rem; }
+  .foot-social a{ width:34px; height:34px; border-radius:50%; border:1px solid rgba(247,239,226,0.2); display:flex; align-items:center; justify-content:center; font-size:0.78rem; }
+  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr;} .origin .wrap{grid-template-columns:1fr;} }
+
+  .wa-float{
+    position:fixed; right:22px; bottom:22px; z-index:60; width:56px; height:56px; border-radius:50%;
+    background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-soft);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="brand">CEYNOLA</a>
+    <input type="checkbox" id="navCheck">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="traceability.html" class="active">Traceability</a></li>
+      <li><a href="wholesale.html">Wholesale</a></li>
+      <li><a href="https://wa.me/94785578810" target="_blank" rel="noopener" class="nav-cta">Order Now</a></li>
+    </ul>
+    <label for="navCheck" class="nav-toggle"><span></span><span></span><span></span></label>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap reveal">
+      <p class="eyebrow">Full Transparency</p>
+      <h1>From our family plot to your package.</h1>
+      <p class="lede">Traceability isn't a buzzword for us — it's our family legacy. We believe you should know exactly where your cinnamon comes from, and whose hands crafted it.</p>
+    </div>
+  </section>
+
+  <section class="origin">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Rooted in Sri Lankan Soil</p>
+        <h2>One plot, watched over tree by tree</h2>
+        <p>Unlike industrial cinnamon, Ceynola is grown on a small-scale family plot. This lets us monitor every single tree, keeping the soil healthy and harvesting bark only when it reaches its peak potency.</p>
+      </div>
+      <div class="fact-pair reveal">
+        <div><h4>Origin</h4><p>Authentic Ceylon, Sri Lanka</p></div>
+        <div><h4>Method</h4><p>Organic family farming</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">The Journey of a Quill</p>
+        <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); margin-top:0.7rem;">Tracked from harvest to your door</h2>
+        <p style="margin-top:1rem; color:var(--bark-800); max-width:52ch;">Every batch is tracked from the moment of harvest to the moment it leaves our door.</p>
+      </div>
+      <div class="timeline">
+        <div class="step reveal">
+          <span class="num">01</span>
+          <h3>The Harvest</h3>
+          <p>We identify the most mature stems, ensuring the inner bark is supple and rich in essential oils.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">02</span>
+          <h3>The Peeling</h3>
+          <p>Using traditional tools, our artisans peel the outer bark with precision to avoid damaging the quill.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">03</span>
+          <h3>The Rolling</h3>
+          <p>The cinnamon is hand-rolled into tight quills — this is where the Ceynola signature quality forms.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">04</span>
+          <h3>Air-Drying</h3>
+          <p>We air-dry our cinnamon in controlled environments to lock in the volatile oils and aroma.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">05</span>
+          <h3>Grading</h3>
+          <p>Every batch is sorted by hand into quills, featherings or chips, based on thickness and colour.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:1rem;">
+        <p class="eyebrow">Uncompromising Quality Control</p>
+        <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:0.7rem; max-width:26ch;">Because we're small, nothing slips through</h2>
+        <p style="margin-top:1rem; color:var(--quill-300); max-width:54ch;">Because we operate on a small scale, we can guarantee that no adulterants or fillers ever enter our process. Every package of Ceynola is a direct reflection of our family's reputation.</p>
+      </div>
+      <div class="trust-list reveal">
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12l5 5L20 7"/></svg> Zero additive policy</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12l5 5L20 7"/></svg> Manual moisture check before packing</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12l5 5L20 7"/></svg> Direct shipment from plot to customer</div>
+      </div>
+      <div class="badge-row reveal">
+        <span>Pure Origin</span>
+        <span>Ethically Sourced</span>
+        <span>Hand-Graded</span>
+        <span>Freshly Packed</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="wrap reveal">
+      <p class="eyebrow" style="justify-content:center;">Taste It Yourself</p>
+      <h2>Experience the purest Ceylon</h2>
+      <p>Ready to taste the difference that true traceability makes? Order your batch directly from our family plot today.</p>
+      <a class="btn-primary" href="https://wa.me/94785578810?text=Hi!%20I've%20read%20about%20your%20traceability%20and%20I'd%20like%20to%20order%20some%20cinnamon." target="_blank" rel="noopener">Order via WhatsApp</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <a href="index.html" class="brand">CEYNOLA</a>
+      <p>Bringing the authentic warmth of Sri Lankan cinnamon to the world. Hand-crafted, ethically sourced, and family-owned.</p>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="traceability.html">Traceability</a></li>
+        <li><a href="wholesale.html">Wholesale</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li>078 557 8810</li>
+        <li>hello@ceynola.lk</li>
+        <li>Sri Lanka</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Ceynola Cinnamon. All rights reserved.</span>
+    <div class="foot-social">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">ig</a>
+      <a href="#" aria-label="TikTok">tt</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/94785578810?text=Hi!%20I'd%20like%20to%20ask%20about%20your%20cinnamon%20products." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 0 0-8.7 15l-1.1 4 4.1-1.1A10 10 0 1 0 12 2zm5.6 14.3c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.3-1-2.5s.6-1.8.8-2c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.8.1.1.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.2.1.4.1.5-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1l1.7.8c.2.1.3.1.4.3.1.2.1.7-.1 1.3z"/></svg>
+</a>
+
+<script>
+  const navCheck = document.getElementById('navCheck');
+  const links = document.getElementById('navLinks');
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { navCheck.checked = false; }));
+
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in'));
+  }, 2500);
+</script>
+
+</body>
+</html>
