@@ -26,7 +26,9 @@
     --shadow-soft: 0 20px 50px -25px rgba(36,18,9,0.35);
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; font-size:17px;}
+  @media (max-width:600px){ html{font-size:19px;} }
+  @media (max-width:400px){ html{font-size:18.5px;} }
   body{
     margin:0; background:var(--parchment-50); color:var(--ink);
     font-family:'Work Sans', sans-serif; font-weight:400; line-height:1.55;
@@ -52,7 +54,7 @@
 
   /* ===== NAV ===== */
   header{ position:sticky; top:0; z-index:50; background:rgba(247,239,226,0.86); backdrop-filter:blur(10px); border-bottom:1px solid var(--paper-line); }
-  nav.wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; position:relative; }
   .brand{ display:flex; align-items:center; gap:10px; font-family:'Fraunces', serif; font-size:1.28rem; font-weight:600; color:var(--bark-950); }
   .nav-links{ display:flex; gap:2.4rem; list-style:none; margin:0 0 0 auto; padding:0; font-size:0.92rem; letter-spacing:0.02em; align-items:center; }
   .nav-links a{position:relative; padding:4px 0;}
@@ -60,23 +62,40 @@
   .nav-links a:hover::after{width:100%;}
   .nav-links a.active::after{width:100%;}
   .nav-cta{
-    background:var(--bark-950); color:var(--parchment-50); padding:1.3rem 2.8rem; border-radius:100px;
-    font-size:0.8rem; font-weight:500; letter-spacing:0.02em; white-space:nowrap;
-    transition:background .25s ease, transform .25s ease;
+    background:#25D366; color:#fff; padding:0.85rem 1.6rem; border-radius:100px;
+    font-size:0.8rem; font-weight:600; letter-spacing:0.02em; white-space:nowrap;
+    display:inline-flex; align-items:center; gap:0.55em;
+    box-shadow:0 10px 22px -12px rgba(37,211,102,0.8);
+    transition:background .25s ease, transform .25s ease, box-shadow .25s ease;
   }
-  .nav-cta:hover{background:var(--cinnamon-600); transform:translateY(-1px);}
+  .nav-cta:hover{background:#1ebe58; transform:translateY(-1px);}
   .nav-cta::after{display:none;}
+  .nav-cta svg{width:15px; height:15px; flex-shrink:0;}
   #navCheck{display:none;}
-  .nav-toggle{display:none; cursor:pointer; padding:6px;}
+  .nav-toggle{display:none; cursor:pointer; padding:6px; transition:transform .3s ease;}
   .nav-toggle span{display:block; width:22px; height:2px; background:var(--bark-950); margin:5px 0; transition:.3s;}
+  #navCheck:checked ~ .nav-toggle{transform:rotate(90deg);}
   @media (max-width:860px){
     .nav-links{
-      position:fixed; inset:0 0 0 auto; top:65px; flex-direction:column; background:var(--parchment-50);
-      width:70%; height:calc(100vh - 65px); padding:2.4rem; gap:1.6rem; font-size:1.05rem;
-      transform:translateX(100%); transition:transform .35s ease; border-left:1px solid var(--paper-line); align-items:flex-start;
+      position:absolute; top:calc(100% + 10px); right:6vw; left:auto;
+      flex-direction:column; align-items:stretch;
+      background:var(--parchment-50); border:1px solid var(--paper-line);
+      border-radius:16px; box-shadow:var(--shadow-soft);
+      width:min(72vw,225px); height:auto; max-height:calc(100vh - 130px); overflow-y:auto;
+      padding:0.6rem; gap:0.1rem; font-size:0.92rem;
+      transform:translateY(-8px) scale(0.97); transform-origin:top right;
+      opacity:0; visibility:hidden; pointer-events:none;
+      transition:opacity .22s ease, transform .22s ease, visibility .22s;
     }
-    #navCheck:checked ~ .nav-links{transform:translateX(0);}
+    #navCheck:checked ~ .nav-links{
+      transform:translateY(0) scale(1); opacity:1; visibility:visible; pointer-events:auto;
+    }
     .nav-toggle{display:block;}
+    .nav-links > li{width:100%;}
+    .nav-links > li > a{display:block; padding:0.6rem 0.55rem; border-radius:9px;}
+    .nav-links > li > a:not(.nav-cta):hover{background:var(--parchment-100);}
+    .nav-links a::after{display:none;}
+    .nav-links .nav-cta{display:inline-flex; width:100%; justify-content:center; margin-top:0.3rem; padding:0.75rem 1rem; font-size:0.85rem;}
   }
 
   /* ===== PAGE HERO ===== */
@@ -171,7 +190,7 @@
       <li><a href="traceability.html">Traceability</a></li>
       <li><a href="wholesale.html" class="active">Wholesale</a></li>
       <li><a href="index.html#contact">Contact</a></li>
-      <li><a href="index.html#contact" class="nav-cta">Enquire Now</a></li>
+      <li><a href="https://wa.me/94785578810?text=Hi%20Ceynola!%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener" class="nav-cta"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 0 0-8.7 15l-1.1 4 4.1-1.1A10 10 0 1 0 12 2zm5.6 14.3c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.3-1-2.5s.6-1.8.8-2c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.8.1.1.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.2.1.4.1.5-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1l1.7.8c.2.1.3.1.4.3.1.2.1.7-.1 1.3z"/></svg>Order Now</a></li>
     </ul>
     <label for="navCheck" class="nav-toggle"><span></span><span></span><span></span></label>
   </nav>
@@ -328,6 +347,19 @@
   const navCheck = document.getElementById('navCheck');
   const links = document.getElementById('navLinks');
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { navCheck.checked = false; }));
+
+  // BUG FIX: the open mobile menu used to stay pinned open and cover the page
+  // while the user scrolled, with no way to dismiss it except tapping a link
+  // or the hamburger icon again. Now it also closes on scroll and on any tap
+  // outside the menu itself.
+  window.addEventListener('scroll', () => {
+    if(navCheck.checked) navCheck.checked = false;
+  }, { passive: true });
+  document.addEventListener('click', (e) => {
+    if(!navCheck.checked) return;
+    const nav = document.querySelector('header nav.wrap');
+    if(nav && !nav.contains(e.target)) navCheck.checked = false;
+  });
 
   if('IntersectionObserver' in window){
     const io = new IntersectionObserver((entries) => {
